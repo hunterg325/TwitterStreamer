@@ -1,23 +1,40 @@
 source 'https://rubygems.org'
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
+group :development, :test do
+  gem 'debugger'
+  gem 'database_cleaner'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'rspec-rails'
+  gem 'rb-readline', '~> 0.4.2'
+end
 
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+group :test do
+  gem 'cucumber-rails', :require => false
+  gem 'cucumber-rails-training-wheels'
+end
 
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+group :development, :test, :production do
+  gem 'mongoid', git: 'git://github.com/mongoid/mongoid.git'
+  gem 'bson_ext'
+end
 
-# Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
+group :assets do
+  gem 'therubyracer'
+  gem 'sass-rails', '~> 4.0.0'
+  gem 'coffee-rails'
+  gem 'uglifier'
+end
+
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'slim'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
